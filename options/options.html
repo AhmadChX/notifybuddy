@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NotifyBuddy - Manage Reminders</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <header class="options-header">
+      <h1>NotifyBuddy</h1>
+      <p class="subtitle">Manage Your Reminders</p>
+    </header>
+
+    <div class="stats" id="stats">
+      <div class="stat-item">
+        <span class="stat-number" id="active-count">0</span>
+        <span class="stat-label">Active</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="completed-count">0</span>
+        <span class="stat-label">Completed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="dismissed-count">0</span>
+        <span class="stat-label">Dismissed</span>
+      </div>
+    </div>
+
+    <!-- Add Reminder Form -->
+    <div class="add-reminder-section">
+      <button id="toggle-add-form" class="toggle-add-button">
+        <span class="button-icon">➕</span>
+        <span class="button-text">Create New Reminder</span>
+      </button>
+      
+      <form id="add-reminder-form" class="add-reminder-form" style="display: none;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="new-reminder-text">Reminder</label>
+            <textarea
+              id="new-reminder-text"
+              placeholder="What would you like to be reminded about?"
+              rows="3"
+              class="form-input"
+              required
+            ></textarea>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="new-reminder-datetime">Date & Time</label>
+            <div class="datetime-group">
+              <input
+                type="datetime-local"
+                id="new-reminder-datetime"
+                class="form-input"
+                required
+              />
+              <button type="button" id="today-button-dashboard" class="today-button" title="Set to the next hour (current date, next hour at :00)">
+                Set to Next Hour
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn-save">
+            <span class="btn-icon">✓</span>
+            Create Reminder
+          </button>
+          <button type="button" id="cancel-add-form" class="btn-cancel">
+            <span class="btn-icon">✕</span>
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Search and Sort Controls -->
+    <div class="controls-section" id="controls-section" style="display: none;">
+      <div class="search-container">
+        <div class="search-icon">🔍</div>
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="Search by text, date, status..."
+          aria-label="Search reminders"
+          autocomplete="off"
+        />
+        <button type="button" id="clear-search" class="clear-search-button" style="display: none;" title="Clear search (Esc)">
+          ✕
+        </button>
+        <span id="search-results-count" class="search-results-count" style="display: none;"></span>
+      </div>
+      
+      <div class="sort-container">
+        <label for="sort-select" class="sort-label">Sort by:</label>
+        <select id="sort-select" class="sort-select" aria-label="Sort reminders">
+          <option value="scheduledTime-asc">Date (Earliest First)</option>
+          <option value="scheduledTime-desc">Date (Latest First)</option>
+          <option value="text-asc">Text (A-Z)</option>
+          <option value="text-desc">Text (Z-A)</option>
+          <option value="status-asc">Status</option>
+          <option value="createdAt-desc">Created (Newest First)</option>
+          <option value="createdAt-asc">Created (Oldest First)</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="loading" class="loading">Loading your reminders...</div>
+    <div id="empty-state" class="empty-state" style="display: none;">
+      <p>You don't have any reminders yet.</p>
+      <p class="empty-subtitle">Click "Create New Reminder" above to create your first reminder!</p>
+    </div>
+
+    <div id="no-results" class="no-results" style="display: none;">
+      <p>No reminders found matching your search.</p>
+      <p class="empty-subtitle">Try adjusting your search terms or filters.</p>
+    </div>
+
+    <div id="reminders-list" class="reminders-list" style="display: none;"></div>
+  </div>
+
+  <script src="../shared/utils.js"></script>
+  <script src="../shared/storage.js"></script>
+  <script src="../shared/alarms.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

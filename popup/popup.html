@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NotifyBuddy - Quick Reminder</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="popup-header">
+      <div class="header-icon">⏰</div>
+      <h1>Create Reminder</h1>
+    </div>
+
+    <form id="reminder-form" class="reminder-form">
+      <div class="form-group">
+        <label for="reminder-text">What would you like to be reminded about?</label>
+        <textarea
+          id="reminder-text"
+          placeholder="e.g., Check emails, Call mom, Review document..."
+          rows="3"
+          class="text-input"
+          required
+          aria-label="Reminder text"
+          aria-required="true"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="reminder-datetime">When should we remind you?</label>
+        <div class="datetime-wrapper">
+          <div class="datetime-icon">📆</div>
+          <input
+            type="datetime-local"
+            id="reminder-datetime"
+            class="datetime-input"
+            required
+            aria-label="Reminder date and time"
+            aria-required="true"
+          />
+          <button type="button" id="today-button" class="today-button" title="Set to the next hour (current date, next hour at :00)">
+            Set to Next Hour
+          </button>
+        </div>
+      </div>
+
+      <div id="message" class="message" style="display: none;"></div>
+
+      <button type="submit" id="submit-button" class="submit-button">
+        <span class="button-icon">✓</span>
+        <span class="button-text">Create Reminder</span>
+      </button>
+    </form>
+
+    <button id="manage-button" class="manage-button">
+      <span class="button-icon">⚙️</span>
+      <span class="button-text">View All Reminders</span>
+    </button>
+  </div>
+
+  <script src="../shared/utils.js"></script>
+  <script src="../shared/storage.js"></script>
+  <script src="../shared/alarms.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
