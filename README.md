@@ -12,7 +12,7 @@ A lightweight browser extension for creating time based reminders and receiving 
 - 💾 **Local storage only** All data stored on your device  
 - 🔒 **Privacy first** No analytics, tracking, or external requests  
 
-### Privacy Guarantees
+## Privacy Guarantees
 
 ✅ **100% Local Storage** - All data stays on your device  
 ✅ **No Cloud Sync** - Nothing is uploaded to external servers  
@@ -20,12 +20,18 @@ A lightweight browser extension for creating time based reminders and receiving 
 ✅ **No External Requests** - Extension never makes network requests  
 ✅ **Browser Specific** - Data is tied to your browser profile  
 
-### Data Persistence
+## Data Persistence
 
 - Persists across browser restarts  
 - Persists through extension updates  
 - Device specific  
 - No cross browser or cross device sync  
+
+## Tech Stack
+
+- Manifest V3
+- Plain HTML/CSS/JavaScript (no build tools)
+- Chrome APIs: Storage, Alarms, Notifications
 
 ## Installation
 
@@ -61,40 +67,42 @@ A lightweight browser extension for creating time based reminders and receiving 
 - Click the notification to open the options page
 - The reminder status automatically changes to "completed" after notification
 
-## Tech Stack
-
-- Manifest V3
-- Plain HTML/CSS/JavaScript (no build tools)
-- Chrome APIs: Storage, Alarms, Notifications
-
 ## Limitations
 
 - Browser must be running for reminders to trigger
-- Minimum 1-minute alarm granularity
-- Reminders are device-specific (no cross-device sync)
+- Reminders are device specific (no cross-device sync)
 
 ## Project Structure
 
-notifybuddy/
-├── manifest.json # Extension manifest (Manifest V3)
-├── popup/
-│ ├── popup.html # Popup UI for quick reminder creation
-│ ├── popup.css # Popup styles
-│ └── popup.js # Popup logic and form handling
-├── options/
-│ ├── options.html # Dashboard/options page
-│ ├── options.css # Dashboard styles
-│ └── options.js # Dashboard logic (CRUD, search, sort)
-├── background/
-│ └── service-worker.js # Background service worker (alarms & notifications)
-├── shared/
-│ ├── storage.js # Storage utilities (CRUD operations)
-│ ├── alarms.js # Alarm scheduling utilities
-│ └── utils.js # Shared utility functions (formatting, validation)
-└── icons/
-├── icon16.png # Extension icons
-├── icon48.png
-└── icon128.png
+**manifest.json**
+Contains the extension manifest configured for Manifest V3.
 
+**popup folder**
+Includes the popup interface used for quick reminder creation:
 
-**Made with ❤️ for productivity and privacy**
+* popup.html for the UI
+* popup.css for styling
+* popup.js for form handling and logic
+
+**options folder**
+Contains the dashboard and settings page:
+
+* options.html for the dashboard layout
+* options.css for dashboard styling
+* options.js for reminder management such as CRUD operations, search, and sorting
+
+**background folder**
+
+* service worker responsible for alarms and notifications
+
+**shared folder**
+Holds shared modules used across the extension:
+
+* storage.js for storage operations
+* alarms.js for scheduling alarms
+* utils.js for formatting and validation utilities
+
+**icons folder**
+Includes all extension icons: icon16.png, icon48.png, and icon128.png
+
+### **Made with ❤️ for productivity and privacy**
