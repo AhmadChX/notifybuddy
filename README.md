@@ -2,7 +2,11 @@
 
 A lightweight browser extension for creating time based reminders and receiving notifications directly in your browser. Ideal for quick follow ups like checking emails, monitoring deliveries, or revisiting tasks you want to remember later.
 
-<img width="403" height="505" alt="image" src="https://github.com/user-attachments/assets/e69f2aa7-3ab7-4a5c-9007-8a2f22d7872d" />
+<p align="center">
+  <img width="403" height="505" src="https://github.com/user-attachments/assets/e69f2aa7-3ab7-4a5c-9007-8a2f22d7872d" />
+  <br>
+  <img width="992" height="805" src="https://github.com/user-attachments/assets/198a25a4-7d29-45a8-985e-5b7c493d4053" />
+</p>
 
 ## Features
 
